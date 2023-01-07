@@ -3,6 +3,6 @@ package br.com.seteideias.anotacaocomspringboot.model;
 import lombok.Data;
 
 @Data
-public class OrderSavedResponse {
+public class OrderPedidoVo {
      private String ordergravada;
 }
