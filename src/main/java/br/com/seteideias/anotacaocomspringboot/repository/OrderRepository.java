@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class OrderRepository {
 
     public void save(OrderPedido orderPedido){
-        System.out.println("SALVO NO BANCO");
+        System.out.println("SALVO NO BANCO.: "+getClass().getSimpleName());
     }
 
 }

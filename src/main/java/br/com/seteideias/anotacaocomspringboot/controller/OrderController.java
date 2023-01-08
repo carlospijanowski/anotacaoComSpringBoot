@@ -1,10 +1,12 @@
 package br.com.seteideias.anotacaocomspringboot.controller;
 
+import br.com.seteideias.anotacaocomspringboot.model.DbzRequest;
 import br.com.seteideias.anotacaocomspringboot.model.OrderPedido;
 import br.com.seteideias.anotacaocomspringboot.model.OrderPedidoVo;
 import br.com.seteideias.anotacaocomspringboot.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,8 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/new-order")
-    public ResponseEntity<OrderPedidoVo> inicio(@RequestBody OrderPedido order) throws IOException {
+    public ResponseEntity<OrderPedidoVo> inicio(@RequestBody @Validated DbzRequest dbzRequest) {
+//    public ResponseEntity<OrderPedidoVo> inicio(@RequestBody @Validated OrderPedido order) {
         OrderPedidoVo save = orderService.save(order);
         return ResponseEntity.ok(save);
     }
